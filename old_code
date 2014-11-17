@@ -1,0 +1,191 @@
+%section#blog.content-first
+    .container
+      %h2.scrollpoint.sp-effect3 Latest Blog Posts
+      %p.scrollpoint.sp-effect3 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce in turpis quam. Nulla quis eleifend lectus.
+    .line.hidden-xs
+      .container
+        .row
+          .col-sm-4
+            %i.fa.fa-bullhorn
+          .col-sm-4
+            %i.fa.fa-bullhorn
+          .col-sm-4
+            %i.fa.fa-bullhorn
+    .container
+      .row
+        / MAIN ROW - Start
+        / BLOG POST - Start
+        .col-sm-4.scrollpoint.sp-effect1
+          .blog-post
+            .blog-body
+              %h3 Lorem Ipsum
+              %p At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum. At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum
+              %a.btn.btn-primary{:href => ""} Read More
+            .blog-info
+              %a
+                %i.fa.fa-comment
+                352
+              %a
+                %i.fa.fa-calendar
+                21/03/2014
+              %a{:href => "#"}
+                %i.fa.fa-facebook
+              %a{:href => "#"}
+                %i.fa.fa-twitter
+        / BLOG POST - End
+        / BLOG POST - Start
+        .col-sm-4.scrollpoint.sp-effect3
+          .blog-post
+            .blog-body
+              %h3 Lorem Ipsum
+              %p At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum. At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum
+              %a.btn.btn-primary{:href => ""} Read More
+            .blog-info
+              %a
+                %i.fa.fa-comment
+                352
+              %a
+                %i.fa.fa-calendar
+                21/03/2014
+              %a{:href => "#"}
+                %i.fa.fa-facebook
+              %a{:href => "#"}
+                %i.fa.fa-twitter
+        / BLOG POST - End
+        / BLOG POST - Start
+        .col-sm-4.scrollpoint.sp-effect2
+          .blog-post
+            .blog-body
+              %h3 Lorem Ipsum
+              %p At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum. At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum
+              %a.btn.btn-primary{:href => ""} Read More
+            .blog-info
+              %a
+                %i.fa.fa-comment
+                352
+              %a
+                %i.fa.fa-calendar
+                21/03/2014
+              %a{:href => "#"}
+                %i.fa.fa-facebook
+              %a{:href => "#"}
+                %i.fa.fa-twitter
+        / BLOG POST - End
+      / MAIN ROW - end
+    / CONTAINER - end
+  /
+    \==========================
+    BLOG - END
+    \===========================
+  /
+    \==========================
+    PRICING - START
+    \===========================
+  %section#pricing.content-second
+    .container
+      %h2.scrollpoint.sp-effect3 Pricing plans
+      %p.scrollpoint.sp-effect3 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce in turpis quam. Nulla quis eleifend lectus.
+      .row
+        / PRICING TABLE FIRST - start
+        .col-sm-4.scrollpoint.sp-effect1
+          / PRICING TABLE FIRST - start
+          .pricing-table
+            / Pricing table - start
+            .pricing-headline
+              %h3 Lite
+              .prize $99
+            %ul.list-unstyled
+              %li
+                %strong 150
+                Lorem Ipsum
+              %li
+                %i.fa.fa-check
+                Lorem Ipsum
+              %li
+                %i.fa.fa-times
+                Lorem Ipsum
+              %li
+                %strong 150
+                Lorem Ipsum
+            .btn-wrapper
+              %a.btn.btn-primary Order
+          / Pricing table - end
+        / COL-SM-4 - end
+        .col-sm-4.scrollpoint.sp-effect3
+          / PRICING TABLE FIRST - start
+          .pricing-table.active
+            / Pricing table - start
+            .pricing-headline
+              %h3 Standard
+              .prize $150
+            %ul.list-unstyled
+              %li
+                %strong 150
+                Lorem Ipsum
+              %li
+                %i.fa.fa-check
+                Lorem Ipsum
+              %li
+                %i.fa.fa-times
+                Lorem Ipsum
+              %li
+                %strong 150
+                Lorem Ipsum
+            .btn-wrapper
+              %a.btn.btn-primary Order
+          / Pricing table - end
+        / COL-SM-4 - end
+        .col-sm-4.scrollpoint.sp-effect2
+          / PRICING TABLE FIRST - start
+          .pricing-table
+            / Pricing table - start
+            .pricing-headline
+              %h3 Premium
+              .prize $350
+            %ul.list-unstyled
+              %li
+                %strong 150
+                Lorem Ipsum
+              %li
+                %i.fa.fa-check
+                Lorem Ipsum
+              %li
+                %i.fa.fa-times
+                Lorem Ipsum
+              %li
+                %strong 150
+                Lorem Ipsum
+            .btn-wrapper
+              %a.btn.btn-primary Order
+          / Pricing table - end
+        / COL-SM-4 - end
+  /
+    \==========================
+    PRICING - END
+    \===========================
+  /
+
+  %section#testimonials.content-first
+    .container
+      %h2.scrollpoint.sp-effect3.text-center Testimonials
+      %p.scrollpoint.sp-effect3.text-center Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce in turpis quam. Nulla quis eleifend lectus.
+      .row
+        / TESTIMONIAL 1 - START
+        .col-sm-6.scrollpoint.sp-effect1
+          .media
+            %a.pull-left{:href => "#"}
+              %img.media-object.img-circle{:alt => "", :src => "image/tom.png"}/
+            .media-body
+              %h4.media-heading John Doe
+              %span Webdesigner
+              %p Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent sed volutpat est. Donec lobortis interdum volutpat. Maecenas bibendum dui quis pharetra tincidunt. Praesent posuere eu velit at scelerisque.
+        / TESTIMONIAL 1 - END
+        / TESTIMONIAL 2 - START
+        .col-sm-6.scrollpoint.sp-effect2
+          .media
+            %a.pull-left{:href => "#"}
+              %img.media-object.img-circle{:alt => "", :src => "image/suzanne.png"}/
+            .media-body
+              %h4.media-heading John Doe
+              %span Webdesigner
+              %p Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent sed volutpat est. Donec lobortis interdum volutpat. Maecenas bibendum dui quis pharetra tincidunt. Praesent posuere eu velit at scelerisque.

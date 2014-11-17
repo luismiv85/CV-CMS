@@ -1,0 +1,18 @@
+= simple_form_for @contact do |f|
+  = f.error_notification
+  .row
+    #legend
+      %legend Contacto
+    .form-group
+      = f.input :title, input_html: { class: "form-control" },  label_html: { class: '' }, :placeholder => "Contacta conmigo!"
+    .form-group
+      = f.input :name, input_html: { class: "form-control" },  label_html: { class: '' }, :placeholder => "Pedro Jurado Flamenquin"
+    .form-group
+      = f.input :address, input_html: { class: "form-control" },  label_html: { class: '' }, :placeholder => "Avenida gorrión, 28, E1, 1ºA"
+    .form-group
+      = f.input :address2, input_html: { class: "form-control" },  label_html: { class: '' }, :placeholder => "11510 - Puerto Banana, Malaga"
+    .form-group
+      = f.input :tlf, input_html: { class: "form-control" },  label_html: { class: '' }, :placeholder => "125 458 745"
+  .row
+    .form-actions
+      = f.button :submit

@@ -1,0 +1,17 @@
+.span6
+  = simple_nested_form_for(separator) do |f| 
+    = f.error_notification
+
+
+
+    #legend
+      %legend= title
+    .form-group
+      = f.input :text, input_html: { class: "form-control" },  label_html: { class: '' }
+    .form-group
+      = f.input :author, input_html: { class: "form-control" },  label_html: { class: '' }
+
+
+
+    .form-actions
+      = f.button :submit

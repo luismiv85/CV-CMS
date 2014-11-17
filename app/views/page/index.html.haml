@@ -1,0 +1,380 @@
+%body#page-top
+  %a.scroll-up.scroll{:href => "#page-top"}
+    %i.fa.fa-chevron-up
+  %h1 Luis Miguel Vázquez - RoR - Wordpress - Prestashop
+  /
+    \==========================
+    HEADER - START
+    \===========================
+  %header
+    %nav.navbar.navbar-default.navbar-fixed-top{:role => "navigation"}
+      .container
+        / Brand and toggle get grouped for better mobile display
+        .navbar-header
+          %button.navbar-toggle{"data-target" => "#myNavigation", "data-toggle" => "collapse", :type => "button"}
+            %i.fa.fa-bars
+          = image_tag @header.avatar.url(:thumb), class: "navbar-logo pull-left", :alt => "Luis Miguel Vazquez" 
+          = link_to "#{@header.name}", root_path, :class => "navbar-brand animated flipInX"
+        / Collect the nav links, forms, and other content for toggling
+        #myNavigation.collapse.navbar-collapse
+          %ul.nav.navbar-nav.navbar-right.animated.flipInX
+            %li
+              %a.scroll{:href => "#about"} Sobre mi
+            %li
+              %a.scroll{:href => "#reference"} Referencias
+            %li
+              %a.scroll{:href => "#pricing"} Precios
+            %li
+              %a.scroll{:href => "#contact"} Contacto
+        / /.navbar-collapse
+      / /.container
+    .jumbotron
+      = image_tag @header.avatar.url, :class => "img-responsive scrollpoint sp-effect3", :alt => "Luismi Vazquez - RoR"
+      .social-wrapper
+        %ul.brands.brands-inline.hidden-xs.scrollpoint.sp-effect1
+          %li
+            = link_to "https://#{@header.facebook}" do
+              %i.fa.fa-facebook.hi-icon-effect-8
+          %li
+            = link_to "https://#{@header.twitter}" do
+              %i.fa.fa-twitter
+        %h2.scrollpoint.sp-effect3= "#{@header.name}"
+        %ul.brands.brands-inline.hidden-xs.scrollpoint.sp-effect2
+          %li
+            = link_to "https://#{@header.google}" do
+              %i.fa.fa-google-plus
+          %li
+            = link_to "https://#{@header.linkedin}" do
+              %i.fa.fa-linkedin
+      / Slideshow start
+      #slideshow.carousel.slide.vertical.scrollpoint.sp-effect3{"data-ride" => "carousel"}
+        .carousel-inner
+          - i = 0
+          - @header.skills.each do |s|
+            - if i == 0
+              .item.active
+                %h3
+                  ="#{s.skill}"
+                  %i.fa{class: "#{s.icon}"}
+            - else 
+              .item
+                %h3
+                  ="#{s.skill}"
+                  %i.fa{class: "#{s.icon}"}
+
+            - i+=1
+            
+
+          
+      %a.btn.btn-reference.btn-lg.scroll.scrollpoint.sp-effect1{:href => "#about", :role => "button"}
+        %i.fa.fa-smile-o
+        Conóceme mejor
+      %a.btn.btn-reference.btn-lg.btn-active.scroll.scrollpoint.sp-effect2{:href => "#contact", :role => "button"}
+        %i.fa.fa-bolt
+        ¡Contacta conmigo!
+  /
+    \==========================
+    HEADER - END
+    \===========================
+  /
+    \==========================
+    ABOUT - START
+    \===========================
+  %section#about.content-first
+    .container
+      .row
+        .col-sm-2.hidden-xs.scrollpoint.sp-effect1
+          / Profile image
+          = image_tag @header.avatar.url, :class => "img-responsive image-bordered", :alt => "Luismi Vazquez - RoR"
+          / %img.image-bordered.img-responsive{:alt => "", :src => "image/jonathan.png"}/
+        / Profile end
+        .col-md-6.col-sm-5.scrollpoint.sp-effect1
+          / Profile description
+          %h3= "#{@about.title}"
+          %p= "#{@about.text}"
+          / .tweets
+          /   .media
+          /     .pull-left
+          /       %i.fa.fa-twitter
+          /     .media-body
+          /       #slideshow1.carousel.slide{"data-ride" => "carousel"}
+          /         .carousel-inner
+
+          /           .item.active
+          /             %p Hi everyone i just finished my last #awesome web template you can check it on #wrapbootstrap.. Fully responsive and mobile first webtheme.co
+
+          /           .item
+          /             %p Check our new amazing portfolio on #Pixelized
+
+          /           .item
+          /             %p Another very #important tweet from your twitter.
+
+        .col-md-4.col-sm-5.scrollpoint.sp-effect2
+          
+          .timeline
+            - @about.events.each do |event|
+              .event
+                .event-info
+                  .date
+                    = event.year
+                %span= event.event
+
+      .row
+        .col-md-12.text-center
+          %a#skills-toggle.btn.btn-primary
+            %i.fa.fa-arrow-circle-o-down
+            Check my skills
+    / Container end
+    #skills
+      .container
+        .row
+          - @about.skills.each do |skill|
+            .col-md-3
+              .chart{"data-percent" => "#{skill.percent}"}
+                = skill.percent.to_s + "% " + skill.skill
+  /        
+    \==========================
+    ABOUT - END
+    \===========================
+  /
+    \==========================
+    SERVICER - START
+    \===========================
+  %section#services.content-second
+    .container
+      .row
+        .col-md-12
+          %h2.scrollpoint.sp-effect3= "#{@about.title_what_i_do}"
+          %p.scrollpoint.sp-effect3= "#{@about.sub_title_what_i_do}"
+        - i = 1
+        - @about.boxes.each do |box|
+          .col-md-3.service.scrollpoint{class: "sp-effect#{i}"}
+            = image_tag box.image.url(:medium)
+            / %img{:alt => "", :src => "image/ico5.png"}/
+            %h3= box.title
+            %p= box.text
+          - i += 1
+
+  /
+  /
+    \==========================
+    SERVICES - END
+    \===========================
+  /
+    \==========================
+    QUOTES - START
+    \===========================
+  %section#separator.content-first
+    .container
+      .row.scrollpoint.sp-effect3
+        .col-sm-8.col-sm-offset-2
+          %blockquote.blockquote-reverse
+            %p
+              %i.fa.fa-quote-left
+              = @separator1.text
+            %footer
+              = @separator1.author
+      / .row.scrollpoint.sp-effect3
+      /   .col-sm-2
+      /     %i.fa.fa-user
+      /     %p
+      /       %span.highlight 100
+      /       Happy clients
+      /   .col-sm-2
+      /     %i.fa.fa-coffee
+      /     %p
+      /       %span.highlight 250
+      /       cups of coffee
+      /   .col-sm-2
+      /     %i.fa.fa-code
+      /     %p
+      /       %span.highlight 2500
+      /       lines of codes
+      /   .col-sm-2
+      /     %i.fa.fa-envelope
+      /     %p
+      /       %span.highlight 300
+      /       emails
+      /   .col-sm-2
+      /     %i.fa.fa-phone
+      /     %p
+      /       %span.highlight 50
+      /       hours phone calls
+      /   .col-sm-2
+      /     %i.fa.fa-facebook
+      /     %p
+      /       %span.highlight 24
+      /       hours facebook
+  /
+    \==========================
+    QUOTES - END
+    \===========================
+  /
+    \==========================
+    SHOWCASE - START
+    \===========================
+  %section#showcase.content-second
+    .container
+      .row
+        .col-sm-12
+          %h2.scrollpoint.sp-effect3= @last_work.title
+          %p.scrollpoint.sp-effect3= @last_work.subtitle
+        .col-lg-6.showcase-text.scrollpoint.sp-effect1
+          .row
+            - @last_work.latest_work_boxes.each do |lw|
+              .col-sm-6.col-md-6.col-lg-12
+                .media
+                  .pull-left.showcase-icon
+                    %i.fa{class: "#{lw.icon}"}
+                  .media-body
+                    %h3.media-heading= lw.title
+                    %p= lw.text
+          - if !@last_work.link.blank?
+            .text-center.showcase-button
+              = link_to "http://#{@last_work.link}", :target => "_blank", class: "btn btn-primary btn-lg" do 
+                %i.fa.fa-bolt
+                Ver en acción
+        .col-lg-6.col-sm-8.col-md-8.col-md-offset-2.col-sm-offset-2.col-lg-offset-0.showcase-carousel.hidden-xs.scrollpoint.sp-effect2
+          = image_tag "imac.png", :alt => "ultimo-trabajo-luis-miguel-vazquez", class: "img-responsive"
+          #carousel-reference.carousel.slide{"data-ride" => "carousel"}
+            / Wrapper for slides
+            .carousel-inner
+              .item.active
+                = image_tag "#{@last_work.image1.url}"
+                
+              .item
+                = image_tag "#{@last_work.image2.url}"
+              .item
+                = image_tag "#{@last_work.image3.url}"            
+            / Controls
+            %a.left.carousel-control{"data-slide" => "prev", :href => "#carousel-reference"}
+              %i.fa.fa-arrow-left
+            %a.right.carousel-control{"data-slide" => "next", :href => "#carousel-reference"}
+              %i.fa.fa-arrow-right
+  /
+    \==========================
+    SHOWCASE - END
+    \===========================
+  /
+    \==========================
+    QUOTES - START
+    \===========================
+  %section#quotes.content-first
+    .container
+      .row.scrollpoint.sp-effect3
+        .col-sm-8.col-sm-offset-2
+          %blockquote.blockquote-reverse
+            %p
+              %i.fa.fa-quote-left
+              = @separator2.text
+            %footer
+              = @separator2.author
+  /
+    \==========================
+    QUOTES - END
+    \===========================
+  /
+    \==========================
+    REFERENCE - START
+    \===========================
+  %section#reference.content-second
+    %h2.scrollpoint.sp-effect3= @references.title
+    %p.scrollpoint.sp-effect3= @references.subtitle if @references.subtitle.present?
+    %ul.grid.cs-style-4
+      - @references.projects.each do |p|
+        %li
+          %figure.scrollpoint.sp-effect1
+            %div
+              = image_tag p.image.url
+            %figcaption
+              %h3= p.name
+              = link_to "Ir a pagina", p.url
+              
+      
+  /
+    \==========================
+    REFERENCE - END
+    \===========================
+  /
+    \==========================
+    BLOG - START
+    \===========================
+  /
+    \==========================
+    CONTACT - START
+    \===========================
+  
+
+  /
+    \==========================
+    CONTACT - END
+    \===========================
+  /
+    \==========================
+    CONTACT - START
+    \===========================
+  %section#contact.content-first
+    .container
+      %h2.scrollpoint.sp-effect3= @contacts.title
+      .row
+        / PRICING TABLE FIRST - start
+        .col-sm-12
+          = image_tag "macbook.png", class: "img-responsive hidden-xs"
+          
+          .macbook-inner.black
+            .row.scrollpoint.sp-effect4
+              .col-sm-8
+                %h3.hidden-xs Déjame un mensaje
+                = simple_form_for @contact, :url => contacts_path do |f|
+                  %fieldset
+                    .form-group
+                      = f.input :name, :label => "Nombre", :input_html => {class: "form-control"}, :label_html => {class: "sr-only"}, :placeholder => "Nombre" if ContactUs.require_name
+                    .form-group
+                      = f.input :subject, :label => "Asunto", :input_html => {class: "form-control"}, :label_html => {class: "sr-only"}, :placeholder => "Asunto" if ContactUs.require_subject
+                    .form-group
+                      = f.input :email, :label => "Email", :input_html => {class: "form-control"}, :label_html => {class: "sr-only"}, :placeholder => "Email"
+                    .form-group
+                      = f.input :message, :label => "Mensaje", :input_html => {class: "form-control"}, :label_html => {class: "sr-only"}, :placeholder => "Mensaje", :as => :text
+                    %button.btn.btn-primary Enviar mensage
+              .col-sm-4
+                = image_tag @header.avatar.url, class: "contact-image image-responsive hidden-xs hidden-sm", :alt => "#{@header.name}"
+
+                .contact-info
+                  %p= @contacts.name
+                  %p= @contacts.address
+                  %p= @contacts.address2
+                  %p= @contacts.tlf
+  
+
+
+  /
+    \==========================
+    CONTACT - END
+    \===========================
+  /
+    \==========================
+    FOOTER - START
+    \===========================
+  %section#footer
+    .container
+      .row
+        .col-sm-12.scrollpoint.sp-effect3
+          %ul.brands.brands-inline
+            %li
+              = link_to "https://#{@header.facebook}" do
+                %i.fa.fa-facebook.hi-icon-effect-8
+            %li 
+              = link_to "https://#{@header.twitter}" do
+                %i.fa.fa-twitter
+            %li
+              = link_to "https://#{@header.google}" do
+                %i.fa.fa-google-plus
+            %li
+              = link_to "https://#{@header.linkedin}" do
+                %i.fa.fa-linkedin
+          %p
+            © Luis Miguel Vázquez Freelancer 2014 All right reserved.
+  /
+    \==========================
+    FOOTER - END
+    \===========================

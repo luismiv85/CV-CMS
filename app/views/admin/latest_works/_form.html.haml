@@ -1,0 +1,54 @@
+
+
+= simple_nested_form_for(@latest_work) do |f| 
+  = f.error_notification
+
+  .row
+
+    #legend
+      %legend Cabecera
+    .form-group
+      = f.input :title, input_html: { class: "form-control" },  label_html: { class: '' }
+    .form-group
+      = f.input :subtitle, input_html: { class: "form-control" },  label_html: { class: '' }
+    .form-group
+      = f.input :link, input_html: { class: "form-control" },  label_html: { class: '' }
+      
+    .form-group
+      .row
+        .span4
+          .image
+            - if @latest_work.image1.present?
+              = image_tag @latest_work.image1.url(:medium)
+          = f.input :image1
+        .span4
+          .image
+            - if @latest_work.image2.present?
+              = image_tag @latest_work.image2.url(:medium)
+          = f.input :image2
+        .span4
+          .image
+            - if @latest_work.image3.present?
+              = image_tag @latest_work.image3.url(:medium)
+          = f.input :image3
+
+    #legend
+      %legend Últimos trabajos
+    .row
+      = f.fields_for :latest_work_boxes do |latest_work_boxes_form|
+
+        .form-group
+          = latest_work_boxes_form.text_field :title, class: "form-control",:placeholder => "Titulo"
+        .form-group
+          = latest_work_boxes_form.text_area :text, class: "form-control", :placeholder => "Texto"
+        .form-group.col-xs-2
+          = latest_work_boxes_form.text_field :icon , class: "form-control", :placeholder => "Icono"
+        .clearfix
+        .form-group
+          = latest_work_boxes_form.link_to_remove "Borrar" 
+      %p
+        = f.link_to_add "Añadir caja", :latest_work_boxes
+
+  .row
+    .form-actions
+      = f.button :submit

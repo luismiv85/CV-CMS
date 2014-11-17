@@ -1,0 +1,102 @@
+
+
+= simple_nested_form_for(@about) do |f| 
+  = f.error_notification
+
+  .row
+    .col-lg-12
+      #legend
+        %legend Sección 1 - Descripción, Línea del tiempo y habilidades
+      .form-group
+        = f.input :title, input_html: { class: "form-control" }, :label => "Titulo entradilla"
+      .form-group
+        = f.input :text, as: :text, input_html: { class: "form-control" }, :label => "Descripción entradilla"
+
+      .row
+        .subsubtitle
+          Linea del tiempo
+        .col-xs-12
+          .col-xs-offset-1.col-xs-3
+            Fecha
+          .col-xs-7
+            Actividad
+      = f.fields_for :events do |event_form|
+        .form-group
+          .col-xs-12.margin-bottom-15
+            .col-xs-3
+              = event_form.text_field :year , class: "form-control" 
+            .col-xs-7
+              = event_form.text_field :event, class: "form-control" 
+            .col-xs-2
+              = event_form.link_to_remove "Borrar", class: "btn btn-xs btn-danger"
+      .form-group
+        = f.link_to_add "Añadir evento", :events, class: "btn btn-xs btn-primary btn-add"
+      
+
+      .row
+        .subsubtitle
+          Habilidades
+        .col-xs-12
+          .col-xs-2
+            Porcentaje
+          .col-xs-2
+            Habilidad
+
+      = f.fields_for :skills do |skill_form|
+        .form-group
+          .col-xs-12.margin-bottom-15
+            .col-xs-2
+              = skill_form.text_field :percent , class: "form-control" 
+            .col-xs-2
+              = skill_form.text_field :skill, class: "form-control"
+            .col-sx-2
+              = skill_form.link_to_remove "Borrar" , class: "btn btn-xs btn-danger"
+      .form-group
+        = f.link_to_add "Añadir habilidad ", :skills, class: "btn btn-xs btn-primary btn-add"
+
+      #legend
+        %legend 2. Sección descripción sobre que haces
+
+      .form-group
+        = f.input :title_what_i_do, input_html: { class: "form-control" }, :label => "Titulo de sección"
+      .form-group
+        = f.input :sub_title_what_i_do, input_html: { class: "form-control" }, :label => "Subtitulo de sección"
+
+      .row
+        .subsubtitle
+          Describe tus habilidades en cuatro cajas
+
+      = f.fields_for :boxes, :html => { :multipart => true } do |box_form|
+        .box  
+          .form-group
+            .col-xs-12.margin-bottom-15
+              - if box_form.object.image.present?
+                = image_tag box_form.object.image.url(:thumb)
+            .col-lg-6.col-sm-6.col-12
+              .input-group
+                %span.input-group-btn
+                  %span.btn.btn-primary.btn-file
+                    = "Subir imagen"
+                    = box_form.file_field :image, :class => "", :placeholder => "Titulo"
+                %input.form-control.file-input{:readonly => "", :type => "text"}
+              %span.help-block
+                Selecciona una imagen. Tamaño ideal: 190x190, .png, jpeg
+
+          .form-group
+            .col-xs-12.margin-bottom-15
+              = box_form.text_field :title, class: "form-control", :placeholder => "Titulo"
+          .form-group
+            .col-xs-12.margin-bottom-15
+              = box_form.text_area :text, class: "form-control", :placeholder => "Contenido"
+          .form-group
+            .col-xs-12.margin-bottom-15
+              = box_form.link_to_remove "Borrar", class: "btn btn-xs btn-danger"
+
+      .form-group
+        = f.link_to_add "Añadir caja ", :boxes, class: "btn btn-xs btn-primary margin-top-15"
+
+      
+
+  .row
+    .form-group.text-center.margin-bottom-50
+      = f.button :submit, class: "btn btn-primary", :value => "Actualizar CV"

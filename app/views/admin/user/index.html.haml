@@ -1,0 +1,13 @@
+.text-center
+  %h2.title-admin Panel de control CV
+/ Main component for a primary marketing message or call to action
+.jumbotron
+  .row
+    = link_to "Administrar cabecera", admin_headers_edit_path, class: "btn btn-lg btn-primary btn-big"
+
+    = link_to "Administrar Sobre Mí", admin_about_mes_edit_path, class: "btn btn-lg btn-primary btn-big"
+
+    = link_to "Frases Famosas", admin_separators_edit_path, class: "btn btn-lg btn-primary btn-big"
+    = link_to "Último tabajo", admin_latest_works_edit_path, class: "btn btn-lg btn-primary btn-big"
+    = link_to "Tus referencias", admin_references_edit_path, class: "btn btn-lg btn-primary btn-big"
+    = link_to "Contacto", admin_contacts_edit_path, class: "btn btn-lg btn-primary btn-big"
