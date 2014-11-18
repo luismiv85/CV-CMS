@@ -27,7 +27,8 @@ gem 'sdoc', '~> 0.4.0',          group: :doc
 gem 'spring',        group: :development
 
 group :production do
-  gem 'unicorn'
+  # gem 'unicorn'
+  gem 'passenger', '~> 4.0.53'
 end
 
 gem 'therubyracer', :platforms => :ruby
@@ -52,3 +53,10 @@ gem 'contact_us', '~> 0.5.1'
 # Use debugger
 # gem 'debugger', group: [:development, :test]
 
+group :development do 
+	gem 'capistrano', '~> 3.2.0'
+	gem 'capistrano-rails', '~> 1.1'
+	gem 'capistrano-rvm'
+	gem 'capistrano-passenger'
+	gem 'capistrano3-nginx', '~> 2.0'
+end
