@@ -36,7 +36,7 @@ set :linked_dirs, %w{bin log tmp/pids tmp/cache tmp/sockets vendor/bundle public
 # set :keep_releases, 5
 
 
-set :rvm_ruby_version, 'ruby-2.1.1@freelance-luismi'
+set :rvm_ruby_version, "ruby-2.1.1@freelance-luismi-#{fetch(:branch)}"
 set :rvm_path, '/usr/local/rvm'
 set :rvm_ruby_string,  ENV['GEM_HOME'].gsub(/.*\//,"")
 set :rvm_type, :system
